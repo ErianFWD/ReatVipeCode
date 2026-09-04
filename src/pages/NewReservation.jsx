@@ -43,7 +43,7 @@ export default function NewReservation() {
       <section className="section reservation-section">
         <div className="container reservation-layout">
           <aside className="reservation-aside">
-            <span className="eyebrow dark">RESERVAPRO</span>
+            <span className="eyebrow dark">ARENAL KIORO SUITES</span>
             <h2>{t('home.heroTitle')}</h2>
             <p>{t('home.heroDesc')}</p>
             <div className="aside-note">

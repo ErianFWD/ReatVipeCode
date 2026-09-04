@@ -1,6 +1,7 @@
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import arenalkioroLogo from '../assets/arenalkioro-logo.png';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -11,7 +12,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer-brand-col">
           <div className="footer-brand-header">
-            <span className="brand-mark">R</span>
+            <span className="brand-mark"><img src={arenalkioroLogo} alt="" aria-hidden="true" /></span>
             <div>
               <strong className="footer-brand-title">{t('footer.brand')}</strong>
               <span className="footer-brand-subtitle">{t('footer.subtitle')}</span>
@@ -25,7 +26,7 @@ export default function Footer() {
           <h4>{t('footer.contactTitle')}</h4>
           <ul className="footer-contact-list">
             <li>
-              <a href="https://wa.me/50688888888?text=Hola,%20deseo%20información%20sobre%20reservas%20en%20ReservaPro" target="_blank" rel="noopener noreferrer" className="footer-contact-link whatsapp-highlight">
+              <a href="https://wa.me/50688888888?text=Hola,%20deseo%20información%20sobre%20reservas%20en%20Arenal Kioro Suites" target="_blank" rel="noopener noreferrer" className="footer-contact-link whatsapp-highlight">
                 <FaWhatsapp className="contact-icon whatsapp-icon" />
                 <span><strong>{t('footer.whatsappText')}:</strong> +506 8888-8888</span>
               </a>
@@ -37,7 +38,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:reservas@reservapro.com" className="footer-contact-link">
+              <a href="mailto:reservas@arenalkioro.com" className="footer-contact-link">
                 <FiMail className="contact-icon" />
                 <span>{t('footer.email')}</span>
               </a>
@@ -56,39 +57,39 @@ export default function Footer() {
           <h4>{t('footer.socialTitle')}</h4>
           <div className="footer-social-grid">
             <a
-              href="https://instagram.com/reservapro.boutique"
+              href="https://instagram.com/arenalkioro.boutique"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card social-instagram"
-              title="Instagram @reservapro.boutique"
+              title="Instagram @arenalkioro.boutique"
             >
               <div className="social-card-icon">
                 <FaInstagram />
               </div>
               <div className="social-card-text">
                 <span className="social-platform">Instagram</span>
-                <span className="social-handle">@reservapro.boutique</span>
+                <span className="social-handle">@arenalkioro.boutique</span>
               </div>
             </a>
 
             <a
-              href="https://facebook.com/reservapro.luxury"
+              href="https://facebook.com/arenalkioro.luxury"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card social-facebook"
-              title="Facebook ReservaPro Luxury"
+              title="Facebook Arenal Kioro Suites Luxury"
             >
               <div className="social-card-icon">
                 <FaFacebook />
               </div>
               <div className="social-card-text">
                 <span className="social-platform">Facebook</span>
-                <span className="social-handle">ReservaPro Luxury</span>
+                <span className="social-handle">Arenal Kioro Suites Luxury</span>
               </div>
             </a>
 
             <a
-              href="https://wa.me/50688888888?text=Hola,%20deseo%20información%20sobre%20reservas%20en%20ReservaPro"
+              href="https://wa.me/50688888888?text=Hola,%20deseo%20información%20sobre%20reservas%20en%20Arenal Kioro Suites"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card social-whatsapp"
@@ -104,18 +105,18 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://tiktok.com/@reservapro.experience"
+              href="https://tiktok.com/@arenalkioro.experience"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card social-tiktok"
-              title="TikTok @reservapro.experience"
+              title="TikTok @arenalkioro.experience"
             >
               <div className="social-card-icon">
                 <FaTiktok />
               </div>
               <div className="social-card-text">
                 <span className="social-platform">TikTok</span>
-                <span className="social-handle">@reservapro.experience</span>
+                <span className="social-handle">@arenalkioro.experience</span>
               </div>
             </a>
           </div>

@@ -137,22 +137,22 @@ const translations = {
     profile: {
       title: 'Mi Perfil',
       subtitle: 'Información de su cuenta y preferencias de huésped.',
-      memberSince: 'Miembro de ReservaPro',
+      memberSince: 'Miembro de Arenal Kioro Suites',
       roleLabel: 'Tipo de Cuenta',
       statusActive: 'Cuenta Activa',
       changePassword: 'Para modificar sus datos o solicitar acceso especial, contacte a recepción.',
     },
     footer: {
-      brand: 'ReservaPro',
+      brand: 'Arenal Kioro Suites',
       subtitle: 'Hotel Boutique & Restaurant',
       tagline: 'Hospitalidad de clase mundial, gastronomía de autor y momentos inolvidables en un entorno exclusivo.',
       contactTitle: 'Contacto & Concierge',
       socialTitle: 'Síguenos en Redes',
       whatsappText: 'WhatsApp Directo',
       phone: '+506 8888-8888',
-      email: 'reservas@reservapro.com',
+      email: 'reservas@arenalkioro.com',
       address: 'Boulevard Luxury 108, Costa Rica',
-      rights: '© 2026 ReservaPro Hotel Boutique & Restaurant. Todos los derechos reservados.',
+      rights: '© 2026 Arenal Kioro Suites Hotel Boutique & Restaurant. Todos los derechos reservados.',
     },
     confirmation: {
       kicker: 'Confirmar acción',
@@ -164,6 +164,8 @@ const translations = {
       logoutMessage: 'Tu sesión actual se cerrará y volverás a la pantalla de inicio de sesión.',
       cancelReservationTitle: '¿Cancelar esta reserva?',
       cancelReservationMessage: 'La reserva cambiará al estado Cancelada. Confirma si deseas continuar.',
+      confirmReservationTitle: '¿Aceptar esta reserva?',
+      confirmReservationMessage: 'La reserva cambiará al estado Confirmada. Confirma si deseas continuar.',
     },
     common: {
       loading: 'Cargando información...',
@@ -313,22 +315,22 @@ const translations = {
     profile: {
       title: 'My Profile',
       subtitle: 'Your account credentials and guest preferences.',
-      memberSince: 'ReservaPro Member',
+      memberSince: 'Arenal Kioro Suites Member',
       roleLabel: 'Account Type',
       statusActive: 'Active Account',
       changePassword: 'To update your information or request VIP perks, please contact reception.',
     },
     footer: {
-      brand: 'ReservaPro',
+      brand: 'Arenal Kioro Suites',
       subtitle: 'Boutique Hotel & Restaurant',
       tagline: 'World-class hospitality, signature gastronomy, and unforgettable moments in an exclusive haven.',
       contactTitle: 'Contact & Concierge',
       socialTitle: 'Follow Our Journey',
       whatsappText: 'Direct WhatsApp',
       phone: '+506 8888-8888',
-      email: 'reservations@reservapro.com',
+      email: 'reservations@arenalkioro.com',
       address: '108 Luxury Boulevard, Costa Rica',
-      rights: '© 2026 ReservaPro Boutique Hotel & Restaurant. All rights reserved.',
+      rights: '© 2026 Arenal Kioro Suites Boutique Hotel & Restaurant. All rights reserved.',
     },
     confirmation: {
       kicker: 'Confirm action',
@@ -340,6 +342,8 @@ const translations = {
       logoutMessage: 'Your current session will end and you will return to the sign-in page.',
       cancelReservationTitle: 'Cancel this booking?',
       cancelReservationMessage: 'The booking status will change to Cancelled. Confirm if you wish to continue.',
+      confirmReservationTitle: 'Accept this booking?',
+      confirmReservationMessage: 'The booking status will change to Confirmed. Confirm if you wish to continue.',
     },
     common: {
       loading: 'Loading information...',
@@ -489,22 +493,22 @@ const translations = {
     profile: {
       title: 'Mon Profil',
       subtitle: 'Informations de compte et préférences.',
-      memberSince: 'Membre ReservaPro',
+      memberSince: 'Membre Arenal Kioro Suites',
       roleLabel: 'Type de Compte',
       statusActive: 'Compte Actif',
       changePassword: 'Pour modifier vos informations ou demander des privilèges, contactez la conciergerie.',
     },
     footer: {
-      brand: 'ReservaPro',
+      brand: 'Arenal Kioro Suites',
       subtitle: 'Hôtel Boutique & Restaurant',
       tagline: 'Hospitalité de classe mondiale, haute gastronomie et moments inoubliables dans un cadre d’exception.',
       contactTitle: 'Contact & Conciergerie',
       socialTitle: 'Suivez-nous',
       whatsappText: 'WhatsApp Direct',
       phone: '+506 8888-8888',
-      email: 'reservations@reservapro.com',
+      email: 'reservations@arenalkioro.com',
       address: '108 Boulevard Luxury, Costa Rica',
-      rights: '© 2026 ReservaPro Hôtel Boutique & Restaurant. Tous droits réservés.',
+      rights: '© 2026 Arenal Kioro Suites Hôtel Boutique & Restaurant. Tous droits réservés.',
     },
     confirmation: {
       kicker: 'Confirmer l’action',
@@ -516,6 +520,8 @@ const translations = {
       logoutMessage: 'Votre session actuelle sera fermée et vous retournerez à la page de connexion.',
       cancelReservationTitle: 'Annuler cette réservation ?',
       cancelReservationMessage: 'La réservation passera à l’état Annulée. Confirmez si vous souhaitez continuer.',
+      confirmReservationTitle: 'Accepter cette réservation ?',
+      confirmReservationMessage: 'La réservation passera à l’état Confirmée. Confirmez si vous souhaitez continuer.',
     },
     common: {
       loading: 'Chargement en cours...',
@@ -665,22 +671,22 @@ const translations = {
     profile: {
       title: '个人中心',
       subtitle: '查看您的账户资料与偏好设置。',
-      memberSince: 'ReservaPro 尊享会员',
+      memberSince: 'Arenal Kioro Suites 尊享会员',
       roleLabel: '账户权限',
       statusActive: '正常可用',
       changePassword: '如需修改资料或升级贵宾特权，请直接联系大堂礼宾前台。',
     },
     footer: {
-      brand: 'ReservaPro',
+      brand: 'Arenal Kioro Suites',
       subtitle: '精品酒店 & 米其林餐厅',
       tagline: '世界顶级的下榻体验与星级珍馐美馔，为您缔造难以忘怀的尊崇时刻。',
       contactTitle: '尊享礼宾 & 预约专线',
       socialTitle: '官方社交媒体',
       whatsappText: 'WhatsApp 专属在线客服',
       phone: '+506 8888-8888',
-      email: 'reservations@reservapro.com',
+      email: 'reservations@arenalkioro.com',
       address: '哥斯达黎加 奢华大道 108 号',
-      rights: '© 2026 ReservaPro 奢华精品酒店 & 米其林餐厅 版权所有。',
+      rights: '© 2026 Arenal Kioro Suites 奢华精品酒店 & 米其林餐厅 版权所有。',
     },
     confirmation: {
       kicker: '确认操作',
@@ -692,6 +698,8 @@ const translations = {
       logoutMessage: '当前会话将结束，您将返回登录页面。',
       cancelReservationTitle: '取消此预订？',
       cancelReservationMessage: '预订状态将更改为已取消。请确认是否继续。',
+      confirmReservationTitle: '接受此预订？',
+      confirmReservationMessage: '预订状态将更改为已确认。请确认是否继续。',
     },
     common: {
       loading: '正在加载数据...',
@@ -718,11 +726,11 @@ const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
-    return localStorage.getItem('reservapro_lang') || 'es';
+    return localStorage.getItem('arenalkioro_lang') || 'es';
   });
 
   useEffect(() => {
-    localStorage.setItem('reservapro_lang', lang);
+    localStorage.setItem('arenalkioro_lang', lang);
     document.documentElement.lang = lang;
   }, [lang]);
 
