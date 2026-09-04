@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="center-card">
         <span>404</span>
         <h1>Página no encontrada.</h1>
-        <p>La ruta solicitada no existe en ReservaPro.</p>
+        <p>La ruta solicitada no existe en Arenal Kioro Suites.</p>
         <Link className="button primary" to="/">Volver al inicio</Link>
       </div>
     </main>

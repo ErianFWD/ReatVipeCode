@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FiActivity, FiCalendar, FiCompass, FiGrid, FiList, FiLogOut, FiMenu, FiUser, FiUsers, FiX } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import reservaproLogo from '../assets/reservapro-logo.png';
+import arenalkioroLogo from '../assets/arenalkioro-logo.png';
 import LanguageSelector from './LanguageSelector.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
 
@@ -30,9 +30,9 @@ export default function Navbar() {
       <header className="navbar-shell">
         <div className="container navbar">
         <Link to="/" className="brand" onClick={close}>
-          <span className="brand-mark"><img src={reservaproLogo} alt="" aria-hidden="true" /></span>
+          <span className="brand-mark"><img src={arenalkioroLogo} alt="" aria-hidden="true" /></span>
           <span>
-            <strong>ReservaPro</strong>
+            <strong>Arenal Kioro Suites</strong>
             <small>{t('nav.brandSubtitle')}</small>
           </span>
         </Link>
