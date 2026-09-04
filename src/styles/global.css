@@ -412,7 +412,6 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   box-shadow: 0 4px 16px rgba(246, 241, 232, 0.25);
 }
 .button.large { min-height: 54px; padding: 0 28px; }
- feat-kendall
 .button.danger-outline { border-color: #d6b0aa; color: var(--red); min-height: 40px; margin-top: 16px; }
 .button.secondary { border-color: var(--gold); color: var(--gold); background: transparent; }
 .button.secondary:hover { background: var(--gold); color: #fff; }
@@ -768,7 +767,6 @@ main
 .center-card h1 { margin: 0; font-family: Georgia, serif; font-size: 2.7rem; font-weight: 400; }
 .center-card p { color: #81786e; }
 
- feat-kendall
 /* Sección ubicación */
 .location-section { background: var(--cream); padding-bottom: 0 !important; }
 .location-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
