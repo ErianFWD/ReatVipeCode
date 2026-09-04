@@ -85,7 +85,7 @@ export default function Home() {
           </div>
           <div className="location-map-wrap">
             <iframe
-              title="ReservaPro – La Fortuna, Costa Rica"
+              title="Arenal Kioro Suites – La Fortuna, Costa Rica"
               src="https://maps.google.com/maps?q=Arenal+Kioro+Suites+%26+Spa+La+Fortuna+Costa+Rica&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="460"
@@ -100,7 +100,7 @@ export default function Home() {
 
       <section className="section quote-section">
         <div className="container quote-card">
-          <span>RESERVAPRO</span>
+          <span>ARENAL KIORO SUITES</span>
           <blockquote>{t('home.quote')}</blockquote>
           <div className="quote-actions">
             <Link className="button primary" to="/reservar">

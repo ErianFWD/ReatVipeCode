@@ -48,10 +48,10 @@ export default function Login() {
 
   const fillDemo = (type) => {
     if (type === 'admin') {
-      setEmail('admin@reservapro.com');
+      setEmail('admin@arenalkioro.com');
       setPassword('1234');
     } else {
-      setEmail('user@reservapro.com');
+      setEmail('user@arenalkioro.com');
       setPassword('1234');
     }
   };
@@ -62,7 +62,7 @@ export default function Login() {
         <img src={LOGIN_IMAGE} alt="Lobby de hotel boutique" onError={(e) => { e.currentTarget.src = '/fallback-hotel.svg'; }} />
         <div className="login-visual-shade" />
         <div className="login-visual-copy">
-          <span className="eyebrow">RESERVAPRO</span>
+          <span className="eyebrow">ARENAL KIORO SUITES</span>
           <h1>{t('home.heroTitle')}</h1>
           <p>{t('home.heroDesc')}</p>
         </div>
@@ -70,7 +70,7 @@ export default function Login() {
 
       <section className="login-panel">
         <div className="login-card">
-          <span className="eyebrow dark">RESERVAPRO</span>
+          <span className="eyebrow dark">ARENAL KIORO SUITES</span>
           <h2>{t('login.title')}</h2>
           <p className="muted">{t('login.subtitle')}</p>
 
@@ -99,13 +99,13 @@ export default function Login() {
           <div className="demo-accounts">
             <div>
               <span>{t('login.demoAdmin')}</span>
-              <strong>admin@reservapro.com</strong>
+              <strong>admin@arenalkioro.com</strong>
               <small>PIN: 1234</small>
               <button type="button" onClick={() => fillDemo('admin')}>{t('login.demoFill')}</button>
             </div>
             <div>
               <span>{t('login.demoClient')}</span>
-              <strong>user@reservapro.com</strong>
+              <strong>user@arenalkioro.com</strong>
               <small>PIN: 1234</small>
               <button type="button" onClick={() => fillDemo('user')}>{t('login.demoFill')}</button>
             </div>
