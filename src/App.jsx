@@ -12,11 +12,9 @@ import AdminReservations from './pages/AdminReservations.jsx';
 import AdminUsers from './pages/AdminUsers.jsx';
 import AccessDenied from './pages/AccessDenied.jsx';
 import NotFound from './pages/NotFound.jsx';
-import { useLanguage } from './context/LanguageContext.jsx';
+import Footer from './components/Footer.jsx';
 
 export default function App() {
-  const { t } = useLanguage();
-
   return (
     <div className="app-shell">
       <Navbar />
@@ -32,12 +30,7 @@ export default function App() {
         <Route path="/acceso-denegado" element={<ProtectedRoute><AccessDenied /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <footer className="footer">
-        <div className="container footer-inner">
-          <div><strong>{t('footer.brand')}</strong><span>{t('footer.subtitle')}</span></div>
-          <p>{t('footer.disclaimer')}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
