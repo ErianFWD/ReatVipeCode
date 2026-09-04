@@ -109,6 +109,22 @@
       "tableArea": "Interior",
       "status": "Cancelada",
       "notes": ""
+    },
+    {
+      "serviceType": "restaurant",
+      "guestName": "Carlos Cliente",
+      "email": "user@reservapro.com",
+      "phone": "32324233",
+      "date": "2026-09-22",
+      "time": "18:00",
+      "guests": 2,
+      "roomType": "",
+      "nights": 0,
+      "tableArea": "VIP",
+      "notes": "",
+      "ownerId": 2,
+      "status": "Pendiente",
+      "id": 6
     }
   ]
 }

@@ -12,6 +12,7 @@ import AdminReservations from './pages/AdminReservations.jsx';
 import AdminUsers from './pages/AdminUsers.jsx';
 import AccessDenied from './pages/AccessDenied.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Footer from './components/Footer.jsx';
 
 export default function App() {
   return (
@@ -29,11 +30,15 @@ export default function App() {
         <Route path="/acceso-denegado" element={<ProtectedRoute><AccessDenied /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+ feat-kendall
       <footer className="footer">
         <div className="container footer-inner">
           <div><strong>ReservaPro</strong><span>Hotel Boutique &amp; Restaurant</span></div>
         </div>
       </footer>
+
+      <Footer />
+ main
     </div>
   );
 }

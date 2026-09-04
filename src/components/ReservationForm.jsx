@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import ErrorMessage from './ErrorMessage.jsx';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 const todayISO = () => {
   const now = new Date();
@@ -8,6 +9,7 @@ const todayISO = () => {
 };
 
 export default function ReservationForm({ user, onSubmit, submitting }) {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     serviceType: 'hotel',
     guestName: user.name,
@@ -44,27 +46,27 @@ export default function ReservationForm({ user, onSubmit, submitting }) {
     setError('');
 
     if (!form.guestName.trim() || !form.email.trim() || !form.phone.trim() || !form.date || !form.time) {
-      setError('Completa todos los campos obligatorios.');
+      setError(t('login.errorInvalid'));
       return;
     }
     if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      setError('Ingresa un correo válido.');
+      setError(t('login.errorInvalid'));
       return;
     }
     if (form.phone.replace(/\D/g, '').length < 8) {
-      setError('Ingresa un teléfono válido.');
+      setError(t('login.errorInvalid'));
       return;
     }
     if (form.date < todayISO()) {
-      setError('La fecha no puede ser anterior al día actual.');
+      setError(t('reservations.date'));
       return;
     }
     if (form.guests < 1) {
-      setError('Debe existir al menos una persona en la reserva.');
+      setError(t('reservations.guests'));
       return;
     }
     if (form.serviceType === 'hotel' && form.nights < 1) {
-      setError('La estancia debe ser de al menos una noche.');
+      setError(t('reservations.roomType'));
       return;
     }
 
@@ -85,13 +87,13 @@ export default function ReservationForm({ user, onSubmit, submitting }) {
       <div className="service-selector">
         <label className={form.serviceType === 'hotel' ? 'selected' : ''}>
           <input type="radio" name="serviceType" value="hotel" checked={form.serviceType === 'hotel'} onChange={update} />
-          <span>Hotel Boutique</span>
-          <small>Habitaciones premium y suites.</small>
+          <span>{t('reservations.hotelOption')}</span>
+          <small>{t('home.hotelDesc')}</small>
         </label>
         <label className={form.serviceType === 'restaurant' ? 'selected' : ''}>
           <input type="radio" name="serviceType" value="restaurant" checked={form.serviceType === 'restaurant'} onChange={update} />
-          <span>Restaurante</span>
-          <small>Interior, terraza o área VIP.</small>
+          <span>{t('reservations.restaurantOption')}</span>
+          <small>{t('home.restaurantDesc')}</small>
         </label>
       </div>
 
@@ -99,29 +101,29 @@ export default function ReservationForm({ user, onSubmit, submitting }) {
 
       <div className="form-grid">
         <label className="field">
-          <span>Nombre *</span>
+          <span>{t('users.colName')} *</span>
           <input name="guestName" value={form.guestName} onChange={update} />
         </label>
         <label className="field">
-          <span>Correo *</span>
+          <span>{t('users.colEmail')} *</span>
           <input type="email" name="email" value={form.email} onChange={update} />
         </label>
         <label className="field">
-          <span>Teléfono *</span>
+          <span>{t('login.email')} *</span>
           <input name="phone" value={form.phone} onChange={update} placeholder="8888-8888" />
         </label>
         <label className="field">
-          <span>Personas *</span>
+          <span>{t('reservations.guests')} *</span>
           <input type="number" name="guests" min="1" max="20" value={form.guests} onChange={update} />
         </label>
         <label className="field">
-          <span>Fecha *</span>
+          <span>{t('reservations.date')} *</span>
           <input type="date" name="date" min={todayISO()} value={form.date} onChange={update} />
         </label>
         <label className="field">
-          <span>Hora *</span>
+          <span>{t('reservations.time')} *</span>
           <select name="time" value={form.time} onChange={update}>
-            <option value="">Seleccionar</option>
+            <option value="">--:--</option>
             {timeOptions.map((time) => <option key={time} value={time}>{time}</option>)}
           </select>
         </label>
@@ -129,37 +131,37 @@ export default function ReservationForm({ user, onSubmit, submitting }) {
         {form.serviceType === 'hotel' ? (
           <>
             <label className="field">
-              <span>Tipo de habitación *</span>
+              <span>{t('reservations.roomType')} *</span>
               <select name="roomType" value={form.roomType} onChange={update}>
-                <option>Habitación Estándar</option>
-                <option>Habitación Premium</option>
                 <option>Suite Deluxe</option>
+                <option>Habitación Premium</option>
+                <option>Habitación Estándar</option>
               </select>
             </label>
             <label className="field">
-              <span>Noches *</span>
+              <span>Noches / Nights *</span>
               <input type="number" name="nights" min="1" max="21" value={form.nights} onChange={update} />
             </label>
           </>
         ) : (
           <label className="field full">
-            <span>Área *</span>
+            <span>{t('reservations.tableType')} *</span>
             <select name="tableArea" value={form.tableArea} onChange={update}>
-              <option>Interior</option>
-              <option>Terraza</option>
               <option>VIP</option>
+              <option>Terraza / Terrace</option>
+              <option>Interior</option>
             </select>
           </label>
         )}
 
         <label className="field full">
-          <span>Notas</span>
-          <textarea name="notes" value={form.notes} onChange={update} maxLength="300" placeholder="Preferencias, alergias, ocasión especial..." />
+          <span>{t('reservations.notes')}</span>
+          <textarea name="notes" value={form.notes} onChange={update} maxLength="300" placeholder={t('reservations.notesPlaceholder')} />
         </label>
       </div>
 
       <button className="button primary large" type="submit" disabled={submitting}>
-        {submitting ? 'Guardando...' : 'Confirmar solicitud'}
+        {submitting ? t('reservations.creating') : t('reservations.submitCreate')}
       </button>
     </form>
   );
