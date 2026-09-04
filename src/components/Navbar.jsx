@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { FiActivity, FiCalendar, FiCompass, FiGrid, FiList, FiLogOut, FiMenu, FiUser, FiUsers, FiX } from 'react-icons/fi';
+import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX, FiList, FiGift, FiFileText } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import arenalkioroLogo from '../assets/arenalkioro-logo.png';
 import LanguageSelector from './LanguageSelector.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
 
@@ -30,9 +29,9 @@ export default function Navbar() {
       <header className="navbar-shell">
         <div className="container navbar">
         <Link to="/" className="brand" onClick={close}>
-          <span className="brand-mark"><img src={arenalkioroLogo} alt="" aria-hidden="true" /></span>
+          <span className="brand-mark">R</span>
           <span>
-            <strong>Arenal Kioro Suites</strong>
+            <strong>ReservaPro</strong>
             <small>{t('nav.brandSubtitle')}</small>
           </span>
         </Link>
@@ -50,9 +49,6 @@ export default function Navbar() {
               <NavLink to="/" className={linkClass} onClick={close}>
                 <FiCompass /> {t('nav.home')}
               </NavLink>
-              <NavLink to="/actividades" className={linkClass} onClick={close}>
-                <FiActivity /> {t('nav.activities')}
-              </NavLink>
               <div className="nav-desktop-lang">
                 <LanguageSelector />
               </div>
@@ -64,9 +60,6 @@ export default function Navbar() {
             <>
               <NavLink to="/dashboard" className={linkClass} onClick={close}>
                 <FiGrid /> {t('nav.dashboard')}
-              </NavLink>
-              <NavLink to="/actividades" className={linkClass} onClick={close}>
-                <FiActivity /> {t('nav.activities')}
               </NavLink>
               <NavLink to="/admin/reservas" className={linkClass} onClick={close}>
                 <FiCalendar /> {t('nav.reservations')}
@@ -101,11 +94,14 @@ export default function Navbar() {
               <NavLink to="/reservar" className={linkClass} onClick={close}>
                 <FiCalendar /> {t('nav.reserve')}
               </NavLink>
-              <NavLink to="/actividades" className={linkClass} onClick={close}>
-                <FiActivity /> {t('nav.activities')}
-              </NavLink>
               <NavLink to="/mis-reservas" className={linkClass} onClick={close}>
                 <FiCompass /> {t('nav.myReservations')}
+              </NavLink>
+              <NavLink to="/addons" className={linkClass} onClick={close}>
+                <FiGift /> Servicios
+              </NavLink>
+              <NavLink to="/facturacion" className={linkClass} onClick={close}>
+                <FiFileText /> Pagos
               </NavLink>
               <NavLink to="/historial" className={linkClass} onClick={close}>
                 <FiList /> Historial
@@ -144,6 +140,6 @@ export default function Navbar() {
         onConfirm={confirmSignOut}
         onCancel={() => setShowLogoutModal(false)}
       />
-    </>
+    </>    
   );
 }
