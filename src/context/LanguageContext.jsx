@@ -164,6 +164,8 @@ const translations = {
       logoutMessage: 'Tu sesión actual se cerrará y volverás a la pantalla de inicio de sesión.',
       cancelReservationTitle: '¿Cancelar esta reserva?',
       cancelReservationMessage: 'La reserva cambiará al estado Cancelada. Confirma si deseas continuar.',
+      confirmReservationTitle: '¿Aceptar esta reserva?',
+      confirmReservationMessage: 'La reserva cambiará al estado Confirmada. Confirma si deseas continuar.',
     },
     common: {
       loading: 'Cargando información...',
@@ -340,6 +342,8 @@ const translations = {
       logoutMessage: 'Your current session will end and you will return to the sign-in page.',
       cancelReservationTitle: 'Cancel this booking?',
       cancelReservationMessage: 'The booking status will change to Cancelled. Confirm if you wish to continue.',
+      confirmReservationTitle: 'Accept this booking?',
+      confirmReservationMessage: 'The booking status will change to Confirmed. Confirm if you wish to continue.',
     },
     common: {
       loading: 'Loading information...',
@@ -516,6 +520,8 @@ const translations = {
       logoutMessage: 'Votre session actuelle sera fermée et vous retournerez à la page de connexion.',
       cancelReservationTitle: 'Annuler cette réservation ?',
       cancelReservationMessage: 'La réservation passera à l’état Annulée. Confirmez si vous souhaitez continuer.',
+      confirmReservationTitle: 'Accepter cette réservation ?',
+      confirmReservationMessage: 'La réservation passera à l’état Confirmée. Confirmez si vous souhaitez continuer.',
     },
     common: {
       loading: 'Chargement en cours...',
@@ -692,6 +698,8 @@ const translations = {
       logoutMessage: '当前会话将结束，您将返回登录页面。',
       cancelReservationTitle: '取消此预订？',
       cancelReservationMessage: '预订状态将更改为已取消。请确认是否继续。',
+      confirmReservationTitle: '接受此预订？',
+      confirmReservationMessage: '预订状态将更改为已确认。请确认是否继续。',
     },
     common: {
       loading: '正在加载数据...',
