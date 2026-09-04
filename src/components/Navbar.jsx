@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import reservaproLogo from '../assets/reservapro-logo.png';
 import LanguageSelector from './LanguageSelector.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
 
@@ -29,7 +30,7 @@ export default function Navbar() {
       <header className="navbar-shell">
         <div className="container navbar">
         <Link to="/" className="brand" onClick={close}>
-          <span className="brand-mark">R</span>
+          <span className="brand-mark"><img src={reservaproLogo} alt="" aria-hidden="true" /></span>
           <span>
             <strong>ReservaPro</strong>
             <small>{t('nav.brandSubtitle')}</small>

@@ -1,6 +1,7 @@
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import reservaproLogo from '../assets/reservapro-logo.png';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -11,7 +12,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer-brand-col">
           <div className="footer-brand-header">
-            <span className="brand-mark">R</span>
+            <span className="brand-mark"><img src={reservaproLogo} alt="" aria-hidden="true" /></span>
             <div>
               <strong className="footer-brand-title">{t('footer.brand')}</strong>
               <span className="footer-brand-subtitle">{t('footer.subtitle')}</span>

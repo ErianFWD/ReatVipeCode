@@ -19,6 +19,8 @@ export default function AdminReservations() {
   const [message, setMessage] = useState('');
   const [reservationToCancel, setReservationToCancel] = useState(null);
   const [cancelling, setCancelling] = useState(false);
+  const [reservationToConfirm, setReservationToConfirm] = useState(null);
+  const [confirming, setConfirming] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -54,8 +56,11 @@ export default function AdminReservations() {
       return;
     }
 
-    const verb = status === 'Confirmada' ? t('reservations.confirmAction') : t('reservations.cancelAction');
-    if (!window.confirm(`${verb}?`)) return;
+    if (status === 'Confirmada') {
+      setReservationToConfirm(id);
+      return;
+    }
+
     setError('');
     setMessage('');
     try {
@@ -64,6 +69,23 @@ export default function AdminReservations() {
       setMessage(status === 'Confirmada' ? t('reservations.statusConfirmed') : t('reservations.statusCancelled'));
     } catch (err) {
       setError(err.message);
+    }
+  };
+
+  const confirmReservation = async () => {
+    if (reservationToConfirm === null) return;
+    setConfirming(true);
+    setError('');
+    setMessage('');
+    try {
+      await updateReservation(reservationToConfirm, { status: 'Confirmada' });
+      setReservations((current) => current.map((item) => item.id === reservationToConfirm ? { ...item, status: 'Confirmada' } : item));
+      setMessage(t('reservations.statusConfirmed'));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setConfirming(false);
+      setReservationToConfirm(null);
     }
   };
 
@@ -170,6 +192,14 @@ export default function AdminReservations() {
         loading={cancelling}
         onConfirm={confirmCancellation}
         onCancel={() => setReservationToCancel(null)}
+      />
+      <ConfirmModal
+        open={reservationToConfirm !== null}
+        title={t('confirmation.confirmReservationTitle')}
+        message={t('confirmation.confirmReservationMessage')}
+        loading={confirming}
+        onConfirm={confirmReservation}
+        onCancel={() => setReservationToConfirm(null)}
       />
     </main>
   );
