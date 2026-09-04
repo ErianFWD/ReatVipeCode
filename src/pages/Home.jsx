@@ -66,7 +66,6 @@ export default function Home() {
         </div>
       </section>
 
- feat-kendall
       <section className="section dark-section location-section">
         <div className="container">
           <div className="location-header">
@@ -95,24 +94,6 @@ export default function Home() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-
-      <section className="section dark-section">
-        <div className="container value-grid">
-          <div>
-            <FiShield />
-            <h3>{t('home.feature1Title')}</h3>
-            <p>{t('home.feature1Desc')}</p>
-          </div>
-          <div>
-            <FiAward />
-            <h3>{t('home.feature2Title')}</h3>
-            <p>{t('home.feature2Desc')}</p>
-          </div>
-          <div>
-            <FiHeart />
-            <h3>{t('home.feature3Title')}</h3>
-            <p>{t('home.feature3Desc')}</p>
- main
           </div>
         </div>
       </section>
@@ -120,8 +101,7 @@ export default function Home() {
       <section className="section quote-section">
         <div className="container quote-card">
           <span>RESERVAPRO</span>
- feat-kendall
-          <blockquote>“Una experiencia premium empieza antes de llegar.”</blockquote>
+          <blockquote>{t('home.quote')}</blockquote>
           <div className="quote-actions">
             <Link className="button primary" to="/reservar">
               🛏️ &nbsp;Reservar habitación
@@ -130,10 +110,6 @@ export default function Home() {
               🍽️ &nbsp;Reservar en restaurante
             </Link>
           </div>
-
-          <blockquote>{t('home.quote')}</blockquote>
-          <Link className="button primary" to="/login">{t('nav.login')}</Link>
- main
         </div>
       </section>
     </main>
