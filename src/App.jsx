@@ -12,6 +12,7 @@ import AdminReservations from './pages/AdminReservations.jsx';
 import AdminUsers from './pages/AdminUsers.jsx';
 import AccessDenied from './pages/AccessDenied.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Activities from './pages/Activities.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/actividades" element={<Activities />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/reservar" element={<ProtectedRoute><NewReservation /></ProtectedRoute>} />

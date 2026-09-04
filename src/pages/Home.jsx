@@ -46,7 +46,13 @@ export default function Home() {
                 <FiHome />
                 <h3>{t('home.hotelTitle')}</h3>
                 <p>{t('home.hotelDesc')}</p>
-                <Link to="/login" className="text-link">{t('home.reserveHotel')} <FiArrowRight /></Link>
+                <div className="hotel-activities-preview">
+                  <small>⛳ Mini Golf · 🏹 Tiro con arco · 💆 Spa & Sauna · 🎨 Cursos</small>
+                </div>
+                <div className="service-actions-row">
+                  <Link to="/login" className="text-link">{t('home.reserveHotel')} <FiArrowRight /></Link>
+                  <Link to="/actividades" className="text-link activities-link">{t('activities.viewCatalog')} →</Link>
+                </div>
               </div>
             </article>
 
@@ -59,9 +65,24 @@ export default function Home() {
                 <FiStar />
                 <h3>{t('home.restaurantTitle')}</h3>
                 <p>{t('home.restaurantDesc')}</p>
+                <div className="hotel-activities-preview">
+                  <small>🍷 Maridaje · 🌿 Ingredientes Locales · ⭐ Alta Cocina</small>
+                </div>
                 <Link to="/login" className="text-link">{t('home.reserveDining')} <FiArrowRight /></Link>
               </div>
             </article>
+          </div>
+
+          {/* Activities Teaser Banner */}
+          <div className="home-activities-banner">
+            <div className="banner-text">
+              <span className="eyebrow dark">{t('activities.eyebrow')}</span>
+              <h3>{t('activities.title')}</h3>
+              <p>{t('activities.subtitle')}</p>
+            </div>
+            <Link to="/actividades" className="button primary">
+              {t('activities.viewCatalog')} <FiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
