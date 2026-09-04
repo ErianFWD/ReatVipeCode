@@ -786,6 +786,17 @@ main
     linear-gradient(to bottom,  #f6f1e8 0%, transparent 22%, transparent 78%, #f6f1e8 100%),
     linear-gradient(to right,   #f6f1e8 0%, transparent 12%, transparent 88%, #f6f1e8 100%);
 }
+.location-map-wrap::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 480px;
+  height: 280px;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at top left, var(--cream) 45%, transparent 75%);
+}
 .location-map-wrap iframe {
   display: block;
   pointer-events: none;
