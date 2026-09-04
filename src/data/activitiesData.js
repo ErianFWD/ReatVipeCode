@@ -1,11 +1,15 @@
+import archeryImg from '../assets/activities/archery.jpg';
+import kidsClubImg from '../assets/activities/kids-club.jpg';
+import miniGolfImg from '../assets/activities/mini-golf.jpg';
+
 export const activitiesData = [
   // --- ACTIVIDADES RECREATIVAS Y DE BIENESTAR DEL HOTEL ---
   {
     id: 'mini-golf',
     type: 'activity',
     category: 'hotel-activity',
-    image: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=80',
-    fallbackImage: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80',
+    image: miniGolfImg,
+    fallbackImage: '/images/activities/mini-golf.jpg',
     price: 25,
     duration: '1h 30min',
     totalSlots: 16,
@@ -46,8 +50,8 @@ export const activitiesData = [
     id: 'archery',
     type: 'activity',
     category: 'hotel-activity',
-    image: 'https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?auto=format&fit=crop&w=1200&q=80',
-    fallbackImage: 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?auto=format&fit=crop&w=1200&q=80',
+    image: archeryImg,
+    fallbackImage: '/images/activities/archery.jpg',
     price: 40,
     duration: '1h',
     totalSlots: 8,
@@ -172,8 +176,8 @@ export const activitiesData = [
     id: 'kids-club',
     type: 'activity',
     category: 'hotel-activity',
-    image: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=1200&q=80',
-    fallbackImage: 'https://images.unsplash.com/photo-1566454544259-f4b94c3d758c?auto=format&fit=crop&w=1200&q=80',
+    image: kidsClubImg,
+    fallbackImage: '/images/activities/kids-club.jpg',
     price: 20,
     duration: '2h',
     totalSlots: 20,
