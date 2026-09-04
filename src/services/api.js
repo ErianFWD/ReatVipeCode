@@ -73,4 +73,8 @@ export function updateReservation(id, data) {
   });
 }
 
+export function getReservationById(id) {
+  return request(`/reservations/${id}`);
+}
+
 export { API_URL };
