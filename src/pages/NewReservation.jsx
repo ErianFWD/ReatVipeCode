@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiCalendar } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import { createReservation } from '../services/api.js';
 import ReservationForm from '../components/ReservationForm.jsx';
 
 export default function NewReservation() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState('');
@@ -20,7 +22,7 @@ export default function NewReservation() {
         ownerId: user.id,
         status: 'Pendiente',
       });
-      navigate('/mis-reservas', { state: { message: 'Reserva creada correctamente.' } });
+      navigate('/mis-reservas', { state: { message: t('reservations.successCreate') } });
     } catch (error) {
       setServerError(error.message);
     } finally {
@@ -32,9 +34,9 @@ export default function NewReservation() {
     <main className="inner-page">
       <section className="page-hero compact-hero">
         <div className="container">
-          <span className="eyebrow"><FiCalendar /> NUEVA RESERVA</span>
-          <h1>Planea tu próxima experiencia.</h1>
-          <p>Elige hotel o restaurante y completa los datos de tu solicitud.</p>
+          <span className="eyebrow"><FiCalendar /> {t('reservations.createTitle')}</span>
+          <h1>{t('reservations.createTitle')}</h1>
+          <p>{t('reservations.createSubtitle')}</p>
         </div>
       </section>
 
@@ -42,12 +44,12 @@ export default function NewReservation() {
         <div className="container reservation-layout">
           <aside className="reservation-aside">
             <span className="eyebrow dark">RESERVAPRO</span>
-            <h2>Todo desde la misma cuenta.</h2>
-            <p>La reserva quedará asociada automáticamente a tu usuario mediante <strong>ownerId</strong>.</p>
+            <h2>{t('home.heroTitle')}</h2>
+            <p>{t('home.heroDesc')}</p>
             <div className="aside-note">
-              <strong>Estado inicial</strong>
-              <span>Pendiente</span>
-              <small>El administrador podrá confirmarla o cancelarla.</small>
+              <strong>{t('dashboard.statusOverview')}</strong>
+              <span>{t('reservations.statusPending')}</span>
+              <small>{t('reservations.adminSubtitle')}</small>
             </div>
           </aside>
           <div className="form-panel">

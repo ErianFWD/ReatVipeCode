@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiCalendar, FiPlus } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import { getUserReservations, updateReservation } from '../services/api.js';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
@@ -9,6 +10,7 @@ import ReservationCard from '../components/ReservationCard.jsx';
 
 export default function MyReservations() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const location = useLocation();
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,29 +31,29 @@ export default function MyReservations() {
   useEffect(() => { load(); }, [user.id]);
 
   const cancel = async (id) => {
-    if (!window.confirm('¿Cancelar esta reserva?')) return;
+    if (!window.confirm(t('reservations.confirmPrompt'))) return;
     setError('');
     try {
       await updateReservation(id, { status: 'Cancelada' });
       setReservations((current) => current.map((item) => item.id === id ? { ...item, status: 'Cancelada' } : item));
-      setMessage('Reserva cancelada correctamente.');
+      setMessage(t('reservations.statusCancelled'));
     } catch (err) {
       setError(err.message);
     }
   };
 
-  if (loading) return <Loader text="Cargando tus reservas..." />;
+  if (loading) return <Loader text={t('common.loading')} />;
 
   return (
     <main className="inner-page">
       <section className="page-hero compact-hero">
         <div className="container page-title-row">
           <div>
-            <span className="eyebrow"><FiCalendar /> ÁREA DE CLIENTE</span>
-            <h1>Mis reservas.</h1>
-            <p>Aquí solo aparecen las reservas cuyo ownerId corresponde a tu usuario.</p>
+            <span className="eyebrow"><FiCalendar /> {t('nav.clientBadge')}</span>
+            <h1>{t('reservations.title')}</h1>
+            <p>{t('reservations.subtitle')}</p>
           </div>
-          <Link className="button light" to="/reservar"><FiPlus /> Nueva reserva</Link>
+          <Link className="button light" to="/reservar"><FiPlus /> {t('dashboard.newBooking')}</Link>
         </div>
       </section>
 
@@ -67,9 +69,9 @@ export default function MyReservations() {
           ) : (
             <div className="empty-state">
               <FiCalendar />
-              <h2>Aún no tienes reservas.</h2>
-              <p>Crea tu primera reserva de hotel o restaurante.</p>
-              <Link className="button primary" to="/reservar">Crear reserva</Link>
+              <h2>{t('reservations.emptyTitle')}</h2>
+              <p>{t('reservations.emptyDesc')}</p>
+              <Link className="button primary" to="/reservar">{t('reservations.makeFirstBooking')}</Link>
             </div>
           )}
         </div>
