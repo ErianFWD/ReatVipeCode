@@ -7,6 +7,7 @@ import { getUserReservations, updateReservation } from '../services/api.js';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
 import ReservationCard from '../components/ReservationCard.jsx';
+import ConfirmModal from '../components/ConfirmModal.jsx';
 
 export default function MyReservations() {
   const { user } = useAuth();
@@ -16,6 +17,8 @@ export default function MyReservations() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [message, setMessage] = useState(location.state?.message || '');
+  const [reservationToCancel, setReservationToCancel] = useState(null);
+  const [cancelling, setCancelling] = useState(false);
 
   const load = async () => {
     setLoading(true);
@@ -30,15 +33,21 @@ export default function MyReservations() {
 
   useEffect(() => { load(); }, [user.id]);
 
-  const cancel = async (id) => {
-    if (!window.confirm(t('reservations.confirmPrompt'))) return;
+  const cancel = (id) => setReservationToCancel(id);
+
+  const confirmCancel = async () => {
+    if (reservationToCancel === null) return;
+    setCancelling(true);
     setError('');
     try {
-      await updateReservation(id, { status: 'Cancelada' });
-      setReservations((current) => current.map((item) => item.id === id ? { ...item, status: 'Cancelada' } : item));
+      await updateReservation(reservationToCancel, { status: 'Cancelada' });
+      setReservations((current) => current.map((item) => item.id === reservationToCancel ? { ...item, status: 'Cancelada' } : item));
       setMessage(t('reservations.statusCancelled'));
     } catch (err) {
       setError(err.message);
+    } finally {
+      setCancelling(false);
+      setReservationToCancel(null);
     }
   };
 
@@ -76,6 +85,15 @@ export default function MyReservations() {
           )}
         </div>
       </section>
+
+      <ConfirmModal
+        open={reservationToCancel !== null}
+        title={t('confirmation.cancelReservationTitle')}
+        message={t('confirmation.cancelReservationMessage')}
+        loading={cancelling}
+        onConfirm={confirmCancel}
+        onCancel={() => setReservationToCancel(null)}
+      />
     </main>
   );
 }

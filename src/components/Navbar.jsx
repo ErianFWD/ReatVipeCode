@@ -4,16 +4,20 @@ import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX }
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import LanguageSelector from './LanguageSelector.jsx';
+import ConfirmModal from './ConfirmModal.jsx';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
   const navigate = useNavigate();
 
   const close = () => setOpen(false);
-  const signOut = () => {
+  const signOut = () => setShowLogoutModal(true);
+  const confirmSignOut = () => {
     logout();
+    setShowLogoutModal(false);
     close();
     navigate('/login');
   };
@@ -21,8 +25,9 @@ export default function Navbar() {
   const linkClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`;
 
   return (
-    <header className="navbar-shell">
-      <div className="container navbar">
+    <>
+      <header className="navbar-shell">
+        <div className="container navbar">
         <Link to="/" className="brand" onClick={close}>
           <span className="brand-mark">R</span>
           <span>
@@ -116,7 +121,16 @@ export default function Navbar() {
             </>
           )}
         </nav>
-      </div>
-    </header>
+        </div>
+      </header>
+
+      <ConfirmModal
+        open={showLogoutModal}
+        title={t('confirmation.logoutTitle')}
+        message={t('confirmation.logoutMessage')}
+        onConfirm={confirmSignOut}
+        onCancel={() => setShowLogoutModal(false)}
+      />
+    </>
   );
 }

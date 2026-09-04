@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
 import StatusBadge from '../components/StatusBadge.jsx';
+import ConfirmModal from '../components/ConfirmModal.jsx';
 
 export default function AdminReservations() {
   const { t } = useLanguage();
@@ -16,6 +17,8 @@ export default function AdminReservations() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const [reservationToCancel, setReservationToCancel] = useState(null);
+  const [cancelling, setCancelling] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -46,6 +49,11 @@ export default function AdminReservations() {
   }, [reservations, statusFilter, typeFilter, search]);
 
   const changeStatus = async (id, status) => {
+    if (status === 'Cancelada') {
+      setReservationToCancel(id);
+      return;
+    }
+
     const verb = status === 'Confirmada' ? t('reservations.confirmAction') : t('reservations.cancelAction');
     if (!window.confirm(`${verb}?`)) return;
     setError('');
@@ -56,6 +64,23 @@ export default function AdminReservations() {
       setMessage(status === 'Confirmada' ? t('reservations.statusConfirmed') : t('reservations.statusCancelled'));
     } catch (err) {
       setError(err.message);
+    }
+  };
+
+  const confirmCancellation = async () => {
+    if (reservationToCancel === null) return;
+    setCancelling(true);
+    setError('');
+    setMessage('');
+    try {
+      await updateReservation(reservationToCancel, { status: 'Cancelada' });
+      setReservations((current) => current.map((item) => item.id === reservationToCancel ? { ...item, status: 'Cancelada' } : item));
+      setMessage(t('reservations.statusCancelled'));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setCancelling(false);
+      setReservationToCancel(null);
     }
   };
 
@@ -137,6 +162,15 @@ export default function AdminReservations() {
           {!filtered.length && <div className="empty-state small-empty"><FiSearch /><h2>{t('reservations.emptyTitle')}</h2><p>{t('reservations.emptyDesc')}</p></div>}
         </div>
       </section>
+
+      <ConfirmModal
+        open={reservationToCancel !== null}
+        title={t('confirmation.cancelReservationTitle')}
+        message={t('confirmation.cancelReservationMessage')}
+        loading={cancelling}
+        onConfirm={confirmCancellation}
+        onCancel={() => setReservationToCancel(null)}
+      />
     </main>
   );
 }
