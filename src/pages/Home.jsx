@@ -66,6 +66,36 @@ export default function Home() {
         </div>
       </section>
 
+ feat-kendall
+      <section className="section dark-section location-section">
+        <div className="container">
+          <div className="location-header">
+            <div className="location-header-text">
+              <span className="location-eyebrow">📍 Nuestra ubicación</span>
+              <h2 className="location-title">Encuéntranos en La Fortuna,<br />Costa Rica</h2>
+              <p className="location-sub">A pasos del Volcán Arenal · Alajuela, Costa Rica</p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Arenal+Kioro+Suites+%26+Spa,+La+Fortuna,+Costa+Rica"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button primary location-btn"
+            >
+              Abrir en Google Maps ↗
+            </a>
+          </div>
+          <div className="location-map-wrap">
+            <iframe
+              title="ReservaPro – La Fortuna, Costa Rica"
+              src="https://maps.google.com/maps?q=Arenal+Kioro+Suites+%26+Spa+La+Fortuna+Costa+Rica&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="460"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
       <section className="section dark-section">
         <div className="container value-grid">
           <div>
@@ -82,6 +112,7 @@ export default function Home() {
             <FiHeart />
             <h3>{t('home.feature3Title')}</h3>
             <p>{t('home.feature3Desc')}</p>
+ main
           </div>
         </div>
       </section>
@@ -89,8 +120,20 @@ export default function Home() {
       <section className="section quote-section">
         <div className="container quote-card">
           <span>RESERVAPRO</span>
+ feat-kendall
+          <blockquote>“Una experiencia premium empieza antes de llegar.”</blockquote>
+          <div className="quote-actions">
+            <Link className="button primary" to="/reservar">
+              🛏️ &nbsp;Reservar habitación
+            </Link>
+            <Link className="button secondary" to="/reservar">
+              🍽️ &nbsp;Reservar en restaurante
+            </Link>
+          </div>
+
           <blockquote>{t('home.quote')}</blockquote>
           <Link className="button primary" to="/login">{t('nav.login')}</Link>
+ main
         </div>
       </section>
     </main>

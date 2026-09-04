@@ -30,7 +30,15 @@ export default function App() {
         <Route path="/acceso-denegado" element={<ProtectedRoute><AccessDenied /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+ feat-kendall
+      <footer className="footer">
+        <div className="container footer-inner">
+          <div><strong>ReservaPro</strong><span>Hotel Boutique &amp; Restaurant</span></div>
+        </div>
+      </footer>
+
       <Footer />
+ main
     </div>
   );
 }
