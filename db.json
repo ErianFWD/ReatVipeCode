@@ -44,7 +44,18 @@
       "nights": 2,
       "tableArea": "",
       "status": "Pendiente",
-      "notes": "Habitación silenciosa"
+      "notes": "Habitación silenciosa",
+      "addonsRequest": {
+        "wineQuantity": 1,
+        "wineTotal": 25,
+        "lateCheckout": true,
+        "lateCheckoutTotal": 50,
+        "dietaryRequests": "",
+        "specialRequests": "",
+        "grandTotal": 75,
+        "status": "Pendiente",
+        "submittedAt": "2026-09-04T19:58:54.214Z"
+      }
     },
     {
       "id": 2,
