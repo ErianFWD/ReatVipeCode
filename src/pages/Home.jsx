@@ -1,25 +1,30 @@
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiCalendar, FiCheckCircle, FiClock, FiHome, FiStar } from 'react-icons/fi';
+import { FiArrowRight, FiAward, FiCalendar, FiCheckCircle, FiClock, FiHeart, FiHome, FiShield, FiStar } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 const HOTEL_IMAGE = 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=85';
 const RESTAURANT_IMAGE = 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85';
 const HERO_IMAGE = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=88';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <main>
       <section className="public-hero">
         <img src={HERO_IMAGE} alt="Hotel boutique" onError={(e) => { e.currentTarget.src = '/fallback-hotel.svg'; }} />
         <div className="public-hero-shade" />
         <div className="container public-hero-content">
-          <span className="eyebrow">HOTEL BOUTIQUE & RESTAURANT</span>
-          <h1>Reserva momentos que importan.</h1>
-          <p>
-            Un solo lugar para organizar estadías, cenas y experiencias memorables con una gestión simple y elegante.
-          </p>
+          <span className="eyebrow">{t('home.eyebrow')}</span>
+          <h1>{t('home.heroTitle')}</h1>
+          <p>{t('home.heroDesc')}</p>
           <div className="hero-actions">
-            <Link className="button primary large" to="/login">Comenzar ahora <FiArrowRight /></Link>
-            <a className="button light-outline large" href="#servicios">Ver servicios</a>
+            <Link className="button primary large" to="/login">
+              {t('home.reserveHotel')} <FiArrowRight />
+            </Link>
+            <a className="button light-outline large" href="#servicios">
+              {t('home.reserveDining')}
+            </a>
           </div>
         </div>
       </section>
@@ -27,35 +32,34 @@ export default function Home() {
       <section className="section light-section" id="servicios">
         <div className="container">
           <div className="section-heading centered">
-            <span className="eyebrow dark">DOS EXPERIENCIAS, UNA RESERVA</span>
-            <h2>Elige cómo quieres vivir ReservaPro.</h2>
-            <p>La misma cuenta te permite reservar alojamiento o una mesa en el restaurante.</p>
+            <span className="eyebrow dark">{t('home.eyebrow')}</span>
+            <h2>{t('home.servicesTitle')}</h2>
           </div>
 
           <div className="service-grid">
             <article className="service-card">
               <div className="service-image">
-                <img src={HOTEL_IMAGE} alt="Habitación de hotel boutique" onError={(e) => { e.currentTarget.src = '/fallback-hotel.svg'; }} />
-                <span>Hotel Boutique</span>
+                <img src={HOTEL_IMAGE} alt="Hotel Suite" onError={(e) => { e.currentTarget.src = '/fallback-hotel.svg'; }} />
+                <span>{t('home.hotelTitle')}</span>
               </div>
               <div className="service-copy">
                 <FiHome />
-                <h3>Descansa con intención.</h3>
-                <p>Habitaciones estándar, premium y suites para estadías tranquilas y personalizadas.</p>
-                <Link to="/login">Reservar estancia <FiArrowRight /></Link>
+                <h3>{t('home.hotelTitle')}</h3>
+                <p>{t('home.hotelDesc')}</p>
+                <Link to="/login" className="text-link">{t('home.reserveHotel')} <FiArrowRight /></Link>
               </div>
             </article>
 
             <article className="service-card">
               <div className="service-image">
-                <img src={RESTAURANT_IMAGE} alt="Restaurante elegante" onError={(e) => { e.currentTarget.src = '/fallback-restaurant.svg'; }} />
-                <span>Restaurante</span>
+                <img src={RESTAURANT_IMAGE} alt="Restaurant Table" onError={(e) => { e.currentTarget.src = '/fallback-restaurant.svg'; }} />
+                <span>{t('home.restaurantTitle')}</span>
               </div>
               <div className="service-copy">
                 <FiStar />
-                <h3>Una mesa para cada ocasión.</h3>
-                <p>Reserva en interior, terraza o zona VIP con control de fecha, hora y número de personas.</p>
-                <Link to="/login">Reservar mesa <FiArrowRight /></Link>
+                <h3>{t('home.restaurantTitle')}</h3>
+                <p>{t('home.restaurantDesc')}</p>
+                <Link to="/login" className="text-link">{t('home.reserveDining')} <FiArrowRight /></Link>
               </div>
             </article>
           </div>
@@ -65,19 +69,19 @@ export default function Home() {
       <section className="section dark-section">
         <div className="container value-grid">
           <div>
-            <FiCalendar />
-            <h3>Reservas simples</h3>
-            <p>Crea una solicitud en pocos pasos y consulta su estado desde tu cuenta.</p>
+            <FiShield />
+            <h3>{t('home.feature1Title')}</h3>
+            <p>{t('home.feature1Desc')}</p>
           </div>
           <div>
-            <FiCheckCircle />
-            <h3>Gestión centralizada</h3>
-            <p>El equipo administrador confirma, cancela y organiza todas las reservas desde un solo panel.</p>
+            <FiAward />
+            <h3>{t('home.feature2Title')}</h3>
+            <p>{t('home.feature2Desc')}</p>
           </div>
           <div>
-            <FiClock />
-            <h3>Seguimiento inmediato</h3>
-            <p>Estados claros para saber si una reserva está pendiente, confirmada o cancelada.</p>
+            <FiHeart />
+            <h3>{t('home.feature3Title')}</h3>
+            <p>{t('home.feature3Desc')}</p>
           </div>
         </div>
       </section>
@@ -85,8 +89,8 @@ export default function Home() {
       <section className="section quote-section">
         <div className="container quote-card">
           <span>RESERVAPRO</span>
-          <blockquote>“Una experiencia premium empieza antes de llegar.”</blockquote>
-          <Link className="button primary" to="/login">Ingresar al sistema</Link>
+          <blockquote>{t('home.quote')}</blockquote>
+          <Link className="button primary" to="/login">{t('nav.login')}</Link>
         </div>
       </section>
     </main>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { FiCalendar, FiCheckCircle, FiClock, FiCoffee, FiHome, FiUsers, FiXCircle } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import { getReservations, getUserReservations, getUsers } from '../services/api.js';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
@@ -18,6 +19,7 @@ export default function Dashboard() {
 
 function UserDashboard() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -37,18 +39,18 @@ function UserDashboard() {
   const today = new Date().toISOString().slice(0, 10);
   const nextReservation = reservations.find((r) => r.status !== 'Cancelada' && r.date >= today);
 
-  if (loading) return <Loader text="Cargando tu dashboard..." />;
+  if (loading) return <Loader text={t('common.loading')} />;
 
   return (
     <main className="dashboard-page">
       <section className="dashboard-welcome user-welcome">
         <div className="container welcome-inner">
           <div>
-            <span className="eyebrow">ÁREA DE CLIENTE</span>
-            <h1>Hola, {user.name.split(' ')[0]}.</h1>
-            <p>Revisa tus próximas experiencias o crea una nueva reserva.</p>
+            <span className="eyebrow">{t('nav.clientBadge')}</span>
+            <h1>{t('dashboard.welcome')} {user.name.split(' ')[0]}.</h1>
+            <p>{t('dashboard.subtitle')}</p>
           </div>
-          <Link className="button light large" to="/reservar">Nueva reserva</Link>
+          <Link className="button light large" to="/reservar">{t('dashboard.newBooking')}</Link>
         </div>
       </section>
 
@@ -56,40 +58,40 @@ function UserDashboard() {
         <div className="container">
           <ErrorMessage message={error} />
           <div className="stats-grid four">
-            <StatCard icon={<FiCalendar />} label="Mis reservas" value={reservations.length} helper="Total registradas" />
-            <StatCard icon={<FiClock />} label="Pendientes" value={pending} helper="Por confirmar" />
-            <StatCard icon={<FiCheckCircle />} label="Confirmadas" value={confirmed} helper="Listas para disfrutar" />
-            <StatCard icon={<FiXCircle />} label="Canceladas" value={cancelled} helper="Histórico" />
+            <StatCard icon={<FiCalendar />} label={t('reservations.title')} value={reservations.length} helper={t('dashboard.totalReservations')} />
+            <StatCard icon={<FiClock />} label={t('dashboard.pendingReservations')} value={pending} helper={t('reservations.statusPending')} />
+            <StatCard icon={<FiCheckCircle />} label={t('dashboard.confirmedReservations')} value={confirmed} helper={t('reservations.statusConfirmed')} />
+            <StatCard icon={<FiXCircle />} label={t('dashboard.cancelledReservations')} value={cancelled} helper={t('reservations.statusCancelled')} />
           </div>
 
           <div className="dashboard-grid">
             <article className="panel-card next-reservation-panel">
-              <span className="panel-kicker">PRÓXIMA RESERVA</span>
+              <span className="panel-kicker">{t('dashboard.recentActivity')}</span>
               {nextReservation ? (
                 <>
                   <div className="next-icon">{nextReservation.serviceType === 'hotel' ? <FiHome /> : <FiCoffee />}</div>
                   <h2>{nextReservation.serviceType === 'hotel' ? nextReservation.roomType : `Mesa ${nextReservation.tableArea}`}</h2>
                   <p>{nextReservation.date} · {nextReservation.time}</p>
                   <StatusBadge status={nextReservation.status} />
-                  <Link className="text-link" to="/mis-reservas">Ver mis reservas →</Link>
+                  <Link className="text-link" to="/mis-reservas">{t('nav.myReservations')} →</Link>
                 </>
               ) : (
                 <div className="empty-mini">
-                  <p>No tienes próximas reservas activas.</p>
-                  <Link className="button primary" to="/reservar">Crear reserva</Link>
+                  <p>{t('dashboard.noRecentActivity')}</p>
+                  <Link className="button primary" to="/reservar">{t('dashboard.newBooking')}</Link>
                 </div>
               )}
             </article>
 
             <article className="panel-card experience-panel">
               <div>
-                <span className="panel-kicker">TU EXPERIENCIA</span>
-                <h2>Hotel o restaurante, tú eliges.</h2>
-                <p>Reserva una estadía o una mesa sin salir de tu cuenta.</p>
+                <span className="panel-kicker">{t('home.eyebrow')}</span>
+                <h2>{t('home.servicesTitle')}</h2>
+                <p>{t('home.heroDesc')}</p>
               </div>
               <div className="experience-buttons">
-                <Link to="/reservar" className="experience-button"><FiHome /> Hotel</Link>
-                <Link to="/reservar" className="experience-button"><FiCoffee /> Restaurante</Link>
+                <Link to="/reservar" className="experience-button"><FiHome /> {t('common.hotel')}</Link>
+                <Link to="/reservar" className="experience-button"><FiCoffee /> {t('common.restaurant')}</Link>
               </div>
             </article>
           </div>
@@ -100,6 +102,7 @@ function UserDashboard() {
 }
 
 function AdminDashboard() {
+  const { t } = useLanguage();
   const [reservations, setReservations] = useState([]);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -132,29 +135,29 @@ function AdminDashboard() {
   }, [reservations, users]);
 
   const statusData = [
-    { name: 'Pendientes', value: metrics.pending },
-    { name: 'Confirmadas', value: metrics.confirmed },
-    { name: 'Canceladas', value: metrics.cancelled },
+    { name: t('dashboard.pendingReservations'), value: metrics.pending },
+    { name: t('dashboard.confirmedReservations'), value: metrics.confirmed },
+    { name: t('dashboard.cancelledReservations'), value: metrics.cancelled },
   ];
   const typeData = [
-    { name: 'Hotel', value: metrics.hotel },
-    { name: 'Restaurante', value: metrics.restaurant },
+    { name: t('common.hotel'), value: metrics.hotel },
+    { name: t('common.restaurant'), value: metrics.restaurant },
   ];
 
-  if (loading) return <Loader text="Cargando panel administrativo..." />;
+  if (loading) return <Loader text={t('common.loading')} />;
 
   return (
     <main className="dashboard-page admin-dashboard">
       <section className="dashboard-welcome admin-welcome">
         <div className="container welcome-inner">
           <div>
-            <span className="eyebrow">PANEL ADMINISTRATIVO</span>
-            <h1>Vista general del negocio.</h1>
-            <p>Reservas, usuarios y operación diaria desde una sola pantalla.</p>
+            <span className="eyebrow">{t('dashboard.adminTitle')}</span>
+            <h1>{t('dashboard.adminTitle')}</h1>
+            <p>{t('dashboard.adminSubtitle')}</p>
           </div>
           <div className="hero-actions">
-            <Link className="button light" to="/admin/reservas">Gestionar reservas</Link>
-            <Link className="button light-outline" to="/admin/usuarios">Gestionar usuarios</Link>
+            <Link className="button light" to="/admin/reservas">{t('dashboard.viewAllBookings')}</Link>
+            <Link className="button light-outline" to="/admin/usuarios">{t('dashboard.manageUsers')}</Link>
           </div>
         </div>
       </section>
@@ -164,19 +167,19 @@ function AdminDashboard() {
           <ErrorMessage message={error} />
 
           <div className="stats-grid admin-stats">
-            <StatCard icon={<FiCalendar />} label="Reservas" value={metrics.total} helper="Total" />
-            <StatCard icon={<FiClock />} label="Pendientes" value={metrics.pending} helper="Requieren acción" />
-            <StatCard icon={<FiCheckCircle />} label="Confirmadas" value={metrics.confirmed} helper="Aprobadas" />
-            <StatCard icon={<FiXCircle />} label="Canceladas" value={metrics.cancelled} helper="Histórico" />
-            <StatCard icon={<FiUsers />} label="Clientes" value={metrics.users} helper="Usuarios estándar" />
-            <StatCard icon={<FiHome />} label="Hotel" value={metrics.hotel} helper="Reservas hotel" />
-            <StatCard icon={<FiCoffee />} label="Restaurante" value={metrics.restaurant} helper="Reservas restaurante" />
+            <StatCard icon={<FiCalendar />} label={t('dashboard.totalReservations')} value={metrics.total} helper={t('common.all')} />
+            <StatCard icon={<FiClock />} label={t('dashboard.pendingReservations')} value={metrics.pending} helper={t('reservations.statusPending')} />
+            <StatCard icon={<FiCheckCircle />} label={t('dashboard.confirmedReservations')} value={metrics.confirmed} helper={t('reservations.statusConfirmed')} />
+            <StatCard icon={<FiXCircle />} label={t('dashboard.cancelledReservations')} value={metrics.cancelled} helper={t('reservations.statusCancelled')} />
+            <StatCard icon={<FiUsers />} label={t('dashboard.registeredUsers')} value={metrics.users} helper={t('users.totalUsers')} />
+            <StatCard icon={<FiHome />} label={t('common.hotel')} value={metrics.hotel} helper={t('dashboard.hotelReservations')} />
+            <StatCard icon={<FiCoffee />} label={t('common.restaurant')} value={metrics.restaurant} helper={t('dashboard.diningReservations')} />
           </div>
 
           <div className="charts-grid">
             <article className="panel-card chart-panel">
               <div className="panel-heading">
-                <div><span className="panel-kicker">ESTADOS</span><h2>Reservas por estado</h2></div>
+                <div><span className="panel-kicker">{t('dashboard.statusOverview')}</span><h2>{t('dashboard.statusOverview')}</h2></div>
               </div>
               <div className="chart-box">
                 <ResponsiveContainer width="100%" height="100%">
@@ -194,7 +197,7 @@ function AdminDashboard() {
             </article>
 
             <article className="panel-card chart-panel">
-              <div className="panel-heading"><div><span className="panel-kicker">SERVICIOS</span><h2>Hotel vs. restaurante</h2></div></div>
+              <div className="panel-heading"><div><span className="panel-kicker">{t('dashboard.distributionByType')}</span><h2>{t('dashboard.distributionByType')}</h2></div></div>
               <div className="chart-box">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={typeData}>
@@ -211,17 +214,17 @@ function AdminDashboard() {
 
           <article className="panel-card recent-panel">
             <div className="panel-heading">
-              <div><span className="panel-kicker">ACTIVIDAD</span><h2>Reservas recientes</h2></div>
-              <Link className="text-link" to="/admin/reservas">Ver todas →</Link>
+              <div><span className="panel-kicker">{t('dashboard.recentActivity')}</span><h2>{t('dashboard.recentActivity')}</h2></div>
+              <Link className="text-link" to="/admin/reservas">{t('dashboard.viewAllBookings')} →</Link>
             </div>
             <div className="table-scroll">
               <table className="data-table">
-                <thead><tr><th>Cliente</th><th>Servicio</th><th>Fecha</th><th>Hora</th><th>Estado</th></tr></thead>
+                <thead><tr><th>{t('users.colName')}</th><th>{t('reservations.serviceType')}</th><th>{t('reservations.date')}</th><th>{t('reservations.time')}</th><th>{t('dashboard.statusOverview')}</th></tr></thead>
                 <tbody>
                   {reservations.slice(0, 6).map((r) => (
                     <tr key={r.id}>
                       <td><strong>{r.guestName}</strong><small>{r.email}</small></td>
-                      <td>{r.serviceType === 'hotel' ? 'Hotel' : 'Restaurante'}</td>
+                      <td>{r.serviceType === 'hotel' ? t('common.hotel') : t('common.restaurant')}</td>
                       <td>{r.date}</td>
                       <td>{r.time}</td>
                       <td><StatusBadge status={r.status} /></td>

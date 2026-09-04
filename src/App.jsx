@@ -12,8 +12,11 @@ import AdminReservations from './pages/AdminReservations.jsx';
 import AdminUsers from './pages/AdminUsers.jsx';
 import AccessDenied from './pages/AccessDenied.jsx';
 import NotFound from './pages/NotFound.jsx';
+import { useLanguage } from './context/LanguageContext.jsx';
 
 export default function App() {
+  const { t } = useLanguage();
+
   return (
     <div className="app-shell">
       <Navbar />
@@ -31,8 +34,8 @@ export default function App() {
       </Routes>
       <footer className="footer">
         <div className="container footer-inner">
-          <div><strong>ReservaPro</strong><span>Hotel Boutique & Restaurant</span></div>
-          <p>Proyecto académico · React + JSON Server · Autenticación y roles simulados.</p>
+          <div><strong>{t('footer.brand')}</strong><span>{t('footer.subtitle')}</span></div>
+          <p>{t('footer.disclaimer')}</p>
         </div>
       </footer>
     </div>
