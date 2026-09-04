@@ -104,10 +104,10 @@ export default function Home() {
           <blockquote>{t('home.quote')}</blockquote>
           <div className="quote-actions">
             <Link className="button primary" to="/reservar">
-              🛏️ &nbsp;Reservar habitación
+              Reservar habitación
             </Link>
             <Link className="button secondary" to="/reservar">
-              🍽️ &nbsp;Reservar en restaurante
+              Reservar en restaurante
             </Link>
           </div>
         </div>
