@@ -123,8 +123,13 @@
       "tableArea": "VIP",
       "notes": "",
       "ownerId": 2,
-      "status": "Pendiente",
-      "id": 6
+      "status": "Confirmada",
+      "id": 6,
+      "checkInDetails": {
+        "identityDocument": "12234568",
+        "estimatedArrivalTime": "15:32",
+        "acceptTerms": true
+      }
     }
   ]
 }

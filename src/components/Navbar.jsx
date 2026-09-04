@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX } from 'react-icons/fi';
+import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX, FiList } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import LanguageSelector from './LanguageSelector.jsx';
@@ -96,6 +96,9 @@ export default function Navbar() {
               </NavLink>
               <NavLink to="/mis-reservas" className={linkClass} onClick={close}>
                 <FiCompass /> {t('nav.myReservations')}
+              </NavLink>
+              <NavLink to="/historial" className={linkClass} onClick={close}>
+                <FiList /> Historial
               </NavLink>
               <NavLink to="/perfil" className={linkClass} onClick={close}>
                 <FiUser /> {t('nav.profile')}

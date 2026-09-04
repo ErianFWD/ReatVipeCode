@@ -1,4 +1,5 @@
 import { FiCalendar, FiClock, FiHome, FiMapPin, FiUsers } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import StatusBadge from './StatusBadge.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
@@ -25,9 +26,14 @@ export default function ReservationCard({ reservation, onCancel }) {
 
       {reservation.notes && <p className="reservation-notes">“{reservation.notes}”</p>}
 
-      {onCancel && reservation.status === 'Pendiente' && (
-        <button className="button danger-outline" onClick={() => onCancel(reservation.id)}>{t('reservations.cancelAction')}</button>
-      )}
+      <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+        <Link to={`/reserva/${reservation.id}`} className="button primary-outline" style={{ flex: 1, justifyContent: 'center' }}>
+          Detalle / Check-in
+        </Link>
+        {onCancel && reservation.status === 'Pendiente' && (
+          <button className="button danger-outline" onClick={() => onCancel(reservation.id)}>{t('reservations.cancelAction')}</button>
+        )}
+      </div>
     </article>
   );
 }
