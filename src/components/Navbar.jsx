@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { FiCalendar, FiCompass, FiGrid, FiLogOut, FiMenu, FiUser, FiUsers, FiX, FiList } from 'react-icons/fi';
+import { FiActivity, FiCalendar, FiCompass, FiGrid, FiList, FiLogOut, FiMenu, FiUser, FiUsers, FiX } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import arenalkioroLogo from '../assets/arenalkioro-logo.png';
@@ -50,6 +50,9 @@ export default function Navbar() {
               <NavLink to="/" className={linkClass} onClick={close}>
                 <FiCompass /> {t('nav.home')}
               </NavLink>
+              <NavLink to="/actividades" className={linkClass} onClick={close}>
+                <FiActivity /> {t('nav.activities')}
+              </NavLink>
               <div className="nav-desktop-lang">
                 <LanguageSelector />
               </div>
@@ -61,6 +64,9 @@ export default function Navbar() {
             <>
               <NavLink to="/dashboard" className={linkClass} onClick={close}>
                 <FiGrid /> {t('nav.dashboard')}
+              </NavLink>
+              <NavLink to="/actividades" className={linkClass} onClick={close}>
+                <FiActivity /> {t('nav.activities')}
               </NavLink>
               <NavLink to="/admin/reservas" className={linkClass} onClick={close}>
                 <FiCalendar /> {t('nav.reservations')}
@@ -94,6 +100,9 @@ export default function Navbar() {
               </NavLink>
               <NavLink to="/reservar" className={linkClass} onClick={close}>
                 <FiCalendar /> {t('nav.reserve')}
+              </NavLink>
+              <NavLink to="/actividades" className={linkClass} onClick={close}>
+                <FiActivity /> {t('nav.activities')}
               </NavLink>
               <NavLink to="/mis-reservas" className={linkClass} onClick={close}>
                 <FiCompass /> {t('nav.myReservations')}
