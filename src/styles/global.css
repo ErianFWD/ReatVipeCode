@@ -644,12 +644,214 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .center-card h1 { margin: 0; font-family: Georgia, serif; font-size: 2.7rem; font-weight: 400; }
 .center-card p { color: #81786e; }
 
-.footer { margin-top: auto; background: #0d0c0a; color: #aaa196; border-top: 1px solid #2b2722; }
-.footer-inner { min-height: 105px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.footer-inner div { display: grid; }
-.footer-inner strong { color: var(--cream); font-family: Georgia, serif; }
-.footer-inner span { margin-top: 3px; font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; }
-.footer-inner p { font-size: .67rem; }
+/* Luxury Multi-Column Footer */
+.footer {
+  margin-top: auto;
+  background: #0d0c0a;
+  color: #aaa196;
+  border-top: 1px solid rgba(211, 178, 118, 0.2);
+  position: relative;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.3fr;
+  gap: 40px;
+  padding: 60px 0 45px;
+}
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-brand-title {
+  color: var(--cream);
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  display: block;
+}
+.footer-brand-subtitle {
+  color: var(--gold-light);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-top: 3px;
+}
+.footer-tagline {
+  color: #b8b0a4;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  max-width: 360px;
+  margin: 0;
+}
+
+.footer h4 {
+  color: var(--cream);
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0 0 20px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.footer-contact-link,
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #bbb3a6;
+  font-size: 0.83rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.footer-contact-link:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+.footer-contact-link .contact-icon,
+.footer-contact-item .contact-icon {
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.footer-contact-link.whatsapp-highlight {
+  color: #72e091;
+  font-weight: 600;
+}
+.footer-contact-link.whatsapp-highlight:hover {
+  color: #9affb4;
+}
+.footer-contact-link .whatsapp-icon {
+  color: #25d366;
+  font-size: 1.2rem;
+}
+
+/* Social Media Cards in Footer */
+.footer-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(211, 178, 118, 0.18);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+.social-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+.social-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.social-card:hover .social-card-icon {
+  transform: scale(1.1);
+}
+.social-card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.social-platform {
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+.social-handle {
+  color: #9e9588;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+.social-card:hover .social-handle {
+  color: var(--gold-light);
+}
+
+/* Specific Social Brand Accents */
+.social-instagram .social-card-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(220, 39, 67, 0.3);
+}
+.social-facebook .social-card-icon {
+  background: #1877f2;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+}
+.social-whatsapp .social-card-icon {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+.social-tiktok .social-card-icon {
+  background: #010101;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #00f2fe;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 22px 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.footer-bottom p {
+  margin: 0;
+  color: #8c8477;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+}
 
 @media (max-width: 1200px) {
   .admin-stats { grid-template-columns: repeat(4, 1fr); }
@@ -681,6 +883,12 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   .value-grid { grid-template-columns: 1fr; }
   .profile-layout { grid-template-columns: 1fr; }
   .profile-avatar { width: 170px; }
+  .footer-content { grid-template-columns: 1fr; gap: 35px; padding: 45px 0 30px; }
+  .footer-tagline { max-width: 100%; }
+}
+
+@media (max-width: 550px) {
+  .footer-social-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 650px) {
