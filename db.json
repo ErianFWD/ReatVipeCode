@@ -1,0 +1,114 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ana Admin",
+      "email": "admin@reservapro.com",
+      "password": "1234",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Carlos Cliente",
+      "email": "user@reservapro.com",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "María López",
+      "email": "maria@reservapro.com",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "name": "Daniel Vargas",
+      "email": "daniel@reservapro.com",
+      "password": "1234",
+      "role": "user"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "ownerId": 2,
+      "serviceType": "hotel",
+      "guestName": "Carlos Cliente",
+      "email": "user@reservapro.com",
+      "phone": "8888-8888",
+      "date": "2026-09-20",
+      "time": "15:00",
+      "guests": 2,
+      "roomType": "Suite Deluxe",
+      "nights": 2,
+      "tableArea": "",
+      "status": "Pendiente",
+      "notes": "Habitación silenciosa"
+    },
+    {
+      "id": 2,
+      "ownerId": 3,
+      "serviceType": "restaurant",
+      "guestName": "María López",
+      "email": "maria@reservapro.com",
+      "phone": "8777-7777",
+      "date": "2026-09-22",
+      "time": "19:30",
+      "guests": 4,
+      "roomType": "",
+      "nights": 0,
+      "tableArea": "Terraza",
+      "status": "Confirmada",
+      "notes": "Mesa con vista al jardín"
+    },
+    {
+      "id": 3,
+      "ownerId": 2,
+      "serviceType": "restaurant",
+      "guestName": "Carlos Cliente",
+      "email": "user@reservapro.com",
+      "phone": "8888-8888",
+      "date": "2026-09-28",
+      "time": "20:00",
+      "guests": 2,
+      "roomType": "",
+      "nights": 0,
+      "tableArea": "VIP",
+      "status": "Confirmada",
+      "notes": "Cena de aniversario"
+    },
+    {
+      "id": 4,
+      "ownerId": 4,
+      "serviceType": "hotel",
+      "guestName": "Daniel Vargas",
+      "email": "daniel@reservapro.com",
+      "phone": "8555-4411",
+      "date": "2026-10-05",
+      "time": "14:00",
+      "guests": 3,
+      "roomType": "Habitación Premium",
+      "nights": 3,
+      "tableArea": "",
+      "status": "Pendiente",
+      "notes": "Cama adicional si es posible"
+    },
+    {
+      "id": 5,
+      "ownerId": 3,
+      "serviceType": "restaurant",
+      "guestName": "María López",
+      "email": "maria@reservapro.com",
+      "phone": "8777-7777",
+      "date": "2026-08-20",
+      "time": "18:30",
+      "guests": 5,
+      "roomType": "",
+      "nights": 0,
+      "tableArea": "Interior",
+      "status": "Cancelada",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+export default function StatCard({ icon, label, value, helper }) {
+  return (
+    <article className="stat-card">
+      <div className="stat-icon">{icon}</div>
+      <div>
+        <span>{label}</span>
+        <strong>{value}</strong>
+        {helper && <small>{helper}</small>}
+      </div>
+    </article>
+  );
+}

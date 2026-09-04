@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#181613"/>
+  <circle cx="600" cy="355" r="165" fill="#2b2722"/>
+  <circle cx="600" cy="355" r="120" fill="#b8914b" opacity=".32"/>
+  <path d="M300 180v330M270 180v140h60V180M900 180v330M870 180c0 80 60 80 60 0" stroke="#d3b276" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <text x="600" y="625" fill="#f6f1e8" font-size="38" text-anchor="middle" font-family="Arial">ReservaPro · Restaurant</text>
+</svg>

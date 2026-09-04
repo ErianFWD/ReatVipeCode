@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#181613"/>
+  <rect x="230" y="190" width="740" height="370" rx="10" fill="#2b2722"/>
+  <rect x="320" y="275" width="125" height="125" fill="#b8914b" opacity=".7"/>
+  <rect x="538" y="275" width="125" height="125" fill="#b8914b" opacity=".7"/>
+  <rect x="755" y="275" width="125" height="125" fill="#b8914b" opacity=".7"/>
+  <path d="M600 100 185 190h830z" fill="#3d372f"/>
+  <text x="600" y="625" fill="#f6f1e8" font-size="38" text-anchor="middle" font-family="Arial">ReservaPro · Hotel Boutique</text>
+</svg>
