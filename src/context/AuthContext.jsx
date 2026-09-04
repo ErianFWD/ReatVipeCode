@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { loginUser } from '../services/api.js';
 
 const AuthContext = createContext(null);
-const STORAGE_KEY = 'reservapro_user';
+const STORAGE_KEY = 'arenalkioro_user';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);

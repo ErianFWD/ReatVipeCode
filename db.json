@@ -3,28 +3,28 @@
     {
       "id": 1,
       "name": "Ana Admin",
-      "email": "admin@reservapro.com",
+      "email": "admin@arenalkioro.com",
       "password": "1234",
       "role": "admin"
     },
     {
       "id": 2,
       "name": "Carlos Cliente",
-      "email": "user@reservapro.com",
+      "email": "user@arenalkioro.com",
       "password": "1234",
       "role": "user"
     },
     {
       "id": 3,
       "name": "María López",
-      "email": "maria@reservapro.com",
+      "email": "maria@arenalkioro.com",
       "password": "1234",
       "role": "user"
     },
     {
       "id": 4,
       "name": "Daniel Vargas",
-      "email": "daniel@reservapro.com",
+      "email": "daniel@arenalkioro.com",
       "password": "1234",
       "role": "user"
     }
@@ -35,7 +35,7 @@
       "ownerId": 2,
       "serviceType": "hotel",
       "guestName": "Carlos Cliente",
-      "email": "user@reservapro.com",
+      "email": "user@arenalkioro.com",
       "phone": "8888-8888",
       "date": "2026-09-20",
       "time": "15:00",
@@ -51,7 +51,7 @@
       "ownerId": 3,
       "serviceType": "restaurant",
       "guestName": "María López",
-      "email": "maria@reservapro.com",
+      "email": "maria@arenalkioro.com",
       "phone": "8777-7777",
       "date": "2026-09-22",
       "time": "19:30",
