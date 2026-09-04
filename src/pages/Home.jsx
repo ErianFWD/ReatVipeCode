@@ -62,22 +62,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section dark-section">
-        <div className="container value-grid">
-          <div>
-            <FiCalendar />
-            <h3>Reservas simples</h3>
-            <p>Crea una solicitud en pocos pasos y consulta su estado desde tu cuenta.</p>
+      <section className="section dark-section location-section">
+        <div className="container">
+          <div className="location-header">
+            <div className="location-header-text">
+              <span className="location-eyebrow">📍 Nuestra ubicación</span>
+              <h2 className="location-title">Encuéntranos en La Fortuna,<br />Costa Rica</h2>
+              <p className="location-sub">A pasos del Volcán Arenal · Alajuela, Costa Rica</p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Arenal+Kioro+Suites+%26+Spa,+La+Fortuna,+Costa+Rica"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button primary location-btn"
+            >
+              Abrir en Google Maps ↗
+            </a>
           </div>
-          <div>
-            <FiCheckCircle />
-            <h3>Gestión centralizada</h3>
-            <p>El equipo administrador confirma, cancela y organiza todas las reservas desde un solo panel.</p>
-          </div>
-          <div>
-            <FiClock />
-            <h3>Seguimiento inmediato</h3>
-            <p>Estados claros para saber si una reserva está pendiente, confirmada o cancelada.</p>
+          <div className="location-map-wrap">
+            <iframe
+              title="ReservaPro – La Fortuna, Costa Rica"
+              src="https://maps.google.com/maps?q=Arenal+Kioro+Suites+%26+Spa+La+Fortuna+Costa+Rica&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="460"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>
@@ -86,7 +98,14 @@ export default function Home() {
         <div className="container quote-card">
           <span>RESERVAPRO</span>
           <blockquote>“Una experiencia premium empieza antes de llegar.”</blockquote>
-          <Link className="button primary" to="/login">Ingresar al sistema</Link>
+          <div className="quote-actions">
+            <Link className="button primary" to="/reservar">
+              🛏️ &nbsp;Reservar habitación
+            </Link>
+            <Link className="button secondary" to="/reservar">
+              🍽️ &nbsp;Reservar en restaurante
+            </Link>
+          </div>
         </div>
       </section>
     </main>

@@ -31,8 +31,7 @@ export default function App() {
       </Routes>
       <footer className="footer">
         <div className="container footer-inner">
-          <div><strong>ReservaPro</strong><span>Hotel Boutique & Restaurant</span></div>
-          <p>Proyecto académico · React + JSON Server · Autenticación y roles simulados.</p>
+          <div><strong>ReservaPro</strong><span>Hotel Boutique &amp; Restaurant</span></div>
         </div>
       </footer>
     </div>
