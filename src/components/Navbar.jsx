@@ -36,7 +36,9 @@ export default function Navbar() {
           {!user ? (
             <>
               <NavLink to="/" className={linkClass} onClick={close}>Inicio</NavLink>
-              <Link to="/login" className="button nav-cta" onClick={close}>Iniciar sesión</Link>
+              <Link to="/login" className="button primary nav-cta" onClick={close}>
+                <FiUser /> Iniciar sesión
+              </Link>
             </>
           ) : user.role === 'admin' ? (
             <>
